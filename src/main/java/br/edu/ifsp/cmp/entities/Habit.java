@@ -1,4 +1,4 @@
-package com.companyname.habittracking.entities;
+package br.edu.ifsp.cmp.entities;
 
 public class Habit {
 
