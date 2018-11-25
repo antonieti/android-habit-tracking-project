@@ -5,11 +5,13 @@ public class Habit {
     private Long id;
     private String name;
     private Short progressCount;
+    private Short goalCount;
 
-    private Habit(Long id, String name, Short progressCount) {
+    private Habit(Long id, String name, Short goalCount) {
         this.id = id;
         this.name = name;
-        this.progressCount = progressCount;
+        this.goalCount = goalCount;
+        this.progressCount = 0;
     }
 
     public Long getId() {
@@ -36,6 +38,18 @@ public class Habit {
         this.progressCount = progressCount;
     }
 
+    public Short getGoalCount() {
+        return goalCount;
+    }
+
+    public void setGoalCount(Short goalCount) {
+        this.goalCount = goalCount;
+    }
+
+    public void incrementProgressCount(){
+        this.progressCount++;
+    }
+
     public static Builder builder() {
         return new Builder();
     }
@@ -43,7 +57,7 @@ public class Habit {
     public static class Builder {
         private Long id;
         private String name;
-        private Short progressCount;
+        private Short goalCount;
 
         public Builder id(Long id) {
             this.id = id;
@@ -55,13 +69,13 @@ public class Habit {
             return this;
         }
 
-        public Builder progressCount(Short progressCount) {
-            this.progressCount = progressCount;
+        public Builder goalCount(Short goalCount) {
+            this.goalCount = goalCount;
             return this;
         }
 
         public Habit build() {
-            return new Habit(this.id, this.name, this.progressCount);
+            return new Habit(this.id, this.name, this.goalCount);
         }
     }
 }
